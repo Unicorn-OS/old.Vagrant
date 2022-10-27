@@ -1,0 +1,8 @@
+---
+- name: Install a Desktop
+  apt:
+    pkg:
+    - xubuntu-core
+    update_cache: yes
+  become: true
+  notify: Reboot

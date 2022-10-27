@@ -1,0 +1,13 @@
+*/.vagrant
+*/.vagrant/*
+*/*/.vagrant
+*/*/.vagrant/*
+*/*/*/.vagrant
+*/*/*/.vagrant/*
+*/*/*/*/.vagrant
+*/*/*/*/.vagrant/*
+*/*/*/*/*/.vagrant
+*/*/*/*/*/.vagrant/*
+*/*/*/*/*/*/.vagrant
+*/*/*/*/*/*/.vagrant/*
+

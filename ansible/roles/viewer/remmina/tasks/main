@@ -1,0 +1,6 @@
+---
+- name: Install VNC viewer
+  apt:
+    pkg:
+    - remmina
+    - remmina-plugin-vnc

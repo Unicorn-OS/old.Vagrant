@@ -1,0 +1,6 @@
+---
+- hosts: local
+  gather_facts: yes
+
+  roles:
+  - role: provider/set default

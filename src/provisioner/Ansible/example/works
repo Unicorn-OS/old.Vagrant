@@ -1,0 +1,8 @@
+first(){
+vagrant up
+}
+
+reload(){
+# If it gets Stuck
+vagrant reload
+}

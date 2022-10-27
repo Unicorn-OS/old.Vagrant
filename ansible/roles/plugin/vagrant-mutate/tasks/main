@@ -1,0 +1,13 @@
+---
+- name: Install a list of packages
+  apt:
+    pkg:
+    - qemu-utils
+    - libvirt-dev
+    - ruby-dev
+
+- name: Install mutate plugin
+  ansible.builtin.shell: vagrant plugin install vagrant-mutate
+  args:
+    creates: '/home/{{ ansible_user }}/.vagrant.d/gems/{{ vagrant_version }}/cache/vagrant-mutate-1.2.0.gem
+  become: true

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+  - name: Debug
+    debug:
+      msg: 'hello {{ansible_user}}'
+
+  roles:
+    - role: LXDE

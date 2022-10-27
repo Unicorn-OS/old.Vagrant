@@ -1,0 +1,13 @@
+# https://app.vagrantup.com/ubuntu/boxes/focal64
+
+convert(){
+vagrant box add --provider virtualbox ubuntu/focal64
+
+vagrant mutate ubuntu/focal64 libvirt
+}
+
+
+start(){
+vagrant init ubuntu/focal64
+vagrant up
+}
