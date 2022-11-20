@@ -1,0 +1,12 @@
+diff --git a/install.bash b/install.bash
+index 97b7775..dbe306b 100755
+--- a/install.bash
++++ b/install.bash
+@@ -230,7 +230,6 @@ function setup_ubuntu() {
+         libvirt-clients \
+         libvirt-daemon \
+         libvirt-daemon-system \
+-        qemu \
+         qemu-system-x86 \
+         qemu-utils \
+         wget \

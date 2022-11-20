@@ -1,0 +1,27 @@
+---
+
+# - name: Install Git to apply patch
+#   ansible.builtin.apt:
+#     pkg:
+#     - git
+#   become: true
+
+- name: Create a directory
+  become: true
+  ansible.builtin.file:
+    path: /var/vagrant
+    state: directory
+    owner: "{{ansible_user}}"
+
+- name: Download vagrant-libvirt-qa install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/vagrant-libvirt/vagrant-libvirt-qa/main/scripts/install.bash
+    dest: /var/vagrant/install.bash
+    mode: '0744'
+
+- name: Apply patch
+  ansible.posix.patch:
+    src: Ubuntu-remove-qemu.patch
+    dest: /var/vagrant/install.bash
+
+# https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html
