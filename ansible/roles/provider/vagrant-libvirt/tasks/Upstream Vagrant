@@ -10,16 +10,21 @@
     owner: "{{ansible_user}}"
 
 - name: is plugin installed?
+  become: true
   shell: |
-    compgen -G "/home/me/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec"
-    if [ $? == 1 ]; then echo False
-    elif [ $? == 0 ]; then echo True
-    fi
+    compgen -G "/root/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec"
   register: plugin_installed
   changed_when: false
+  failed_when: false
   args:
     executable: /bin/bash
-
+# Old
+  # shell: |
+  #   if compgen -G "/root/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec" ; then
+  #     echo True
+  #   else
+  #     echo False
+  #   fi
 
 - name: Download vagrant-libvirt-qa install script
   ansible.builtin.get_url:
@@ -27,8 +32,7 @@
     dest: /var/vagrant/install.bash
     force: no
     mode: '0744'
-  when: not (plugin_installed.stdout | bool)
-# Hack to make idempotent until 'force:' is fixed!
+  when: plugin_installed.rc   # Hack to make idempotent until 'force:' is fixed!
 
 - name: Apply patch
   become: true
@@ -36,13 +40,15 @@
     src: Ubuntu-remove-qemu.patch
     dest: /var/vagrant/install.bash
 
+# May need to rewrite this, to run for user instead of root!
+  # become_method: sudo
+  # become_user: "{{ansible_user}}"
 - name: install.bash
   become: true
   ansible.builtin.shell: /var/vagrant/install.bash
-  when: not (plugin_installed.stdout | bool)
-
+  when: plugin_installed.rc   # When 1 it's not installed
 
 - debug:
-    msg: "{{plugin_installed.stdout}}"
+    msg: "{{plugin_installed.rc}}"
 
 # https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html
