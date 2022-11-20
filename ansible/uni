@@ -1,9 +1,5 @@
 ---
-- hosts: test, local
-  vars:
-    source: repository
-  gather_facts: yes
+- hosts: test #, local
 
   roles:
-  - provider/set default
   - Vagrant/default

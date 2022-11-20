@@ -1,3 +1,5 @@
 ---
 dependencies:
 - Vagrant/install
+- provider/vagrant-libvirt
+- provider/set default
