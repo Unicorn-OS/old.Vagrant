@@ -48,6 +48,15 @@
   ansible.builtin.shell: /var/vagrant/install.bash
   when: plugin_installed.rc   # When 1 it's not installed
 
+- name: Copy .vagrant.d/ to enable on normal user
+  become: true
+  ansible.builtin.copy:
+    src: /root/.vagrant.d/
+    dest: "/home/{{ansible_user}}/.vagrant.d/"
+    remote_src: yes
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+
 - debug:
     msg: "{{plugin_installed.rc}}"
 

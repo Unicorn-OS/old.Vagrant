@@ -1,5 +1,5 @@
 ---
-- hosts: test #, local
+- hosts: local #, test
 
   roles:
   - Vagrant/default
