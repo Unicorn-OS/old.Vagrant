@@ -1,10 +1,6 @@
 ---
-
-# - name: Install Git to apply patch
-#   ansible.builtin.apt:
-#     pkg:
-#     - git
-#   become: true
+# Bug: is not idempotent, `get_url` Should only download once! as "force = no"
+# https://github.com/ansible/ansible/issues/64016
 
 - name: Create a directory
   become: true
@@ -17,11 +13,26 @@
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/vagrant-libvirt/vagrant-libvirt-qa/main/scripts/install.bash
     dest: /var/vagrant/install.bash
-    mode: '0744'
+    force: no
+    # mode: '0744'
 
 - name: Apply patch
+  become: true
   ansible.posix.patch:
     src: Ubuntu-remove-qemu.patch
     dest: /var/vagrant/install.bash
+
+- name: is plugin installed?
+  shell: compgen -G "/home/me/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec"
+  register: plugin_path
+  args:
+    executable: /bin/bash
+  changed_when: false
+
+- name: install.bash
+  become: true
+  ansible.builtin.shell: /var/vagrant/install.bash
+  args:
+    creates: "{{plugin_path.stdout}}"
 
 # https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html
