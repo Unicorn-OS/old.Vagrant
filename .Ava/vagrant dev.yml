@@ -1,0 +1,21 @@
+---
+# **Todo**: Make it automatically get {{name}} from {{repo}} using regex! This way I don't need an extra name field.
+- hosts: localhost
+  vars:
+    stor: ".uni/stor/"
+    vm: ".uni/vm/"
+    repo: [
+      { subdir: "{{stor}}", repo: "git@github.com:UniStor/MinIO.git", name: "MinIO"},
+      { subdir: "{{vm}}", repo: "git@github.com:Unicorn-OS/Vagrant.git", name: "Vagrant"},
+      { subdir: "{{vm}}", repo: "git@github.com:Unicorn-OS/vagrant.template.git", name: "vagrant.template"}
+      ]
+  tasks:
+  - debug:
+      msg: "{{item.name}}"
+    loop: "{{repo}}"
+
+  - name: Git checkout
+    ansible.builtin.git:
+      repo: "{{item.repo}}"
+      dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/src/{{item.subdir}}{{item.name}}"
+    loop: "{{repo}}"
