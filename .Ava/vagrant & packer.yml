@@ -4,10 +4,13 @@
   vars:
     stor: ".uni/stor/"
     vm: ".uni/vm/"
+    os: ".uni/os/"
     repo: [
       { subdir: "{{stor}}", repo: "git@github.com:UniStor/MinIO.git", name: "MinIO"},
       { subdir: "{{vm}}", repo: "git@github.com:Unicorn-OS/Vagrant.git", name: "Vagrant"},
-      { subdir: "{{vm}}", repo: "git@github.com:Unicorn-OS/vagrant.template.git", name: "vagrant.template"}
+      { subdir: "{{vm}}", repo: "git@github.com:Unicorn-OS/Vagrant.Template.git", name: "Vagrant.Template"},
+      { subdir: "{{os}}", repo: "git@github.com:Unicorn-OS/Packer.git", name: "Packer"},
+      { subdir: "{{os}}", repo: "git@github.com:Unicorn-OS/Packer.Template.git", name: "Packer.Template"},
       ]
   tasks:
   - debug:
