@@ -1,0 +1,26 @@
+
+- name: stat .profile
+  ansible.builtin.stat:
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.profile"
+  register: profile
+
+- name: stat .bash_profile
+  ansible.builtin.stat:
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.bash_profile"
+  register: bash_profile
+
+- name: which .profile?
+  ansible.builtin.set_fact:
+    profile_file:
+        - .bashrc
+        - "{{ '.profile' if profile.stat.exists else '.bash_profile' if bash_profile.stat.exists }}"
+
+- name: environment variables
+  ansible.builtin.blockinfile:
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/{{item}}"
+    create: true
+    marker_begin: "<Vagrant Libvirt"
+    marker_end: "Vagrant Libvirt/>"
+    block: |
+      export VAGRANT_DEFAULT_PROVIDER={{default_provider}}
+  loop: "{{profile_file}}"

@@ -1,3 +1,5 @@
 ---
 
 plugin_source: "Upstream Vagrant"
+
+default_provider: libvirt

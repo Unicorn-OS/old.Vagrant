@@ -3,5 +3,4 @@
 - include_tasks: "{{plugin_source}}"
 
 - name: Set Libvirt as default
-  environment_variable:
-    "export VAGRANT_DEFAULT_PROVIDER=libvirt"
+  include_tasks: environment variable.yml
