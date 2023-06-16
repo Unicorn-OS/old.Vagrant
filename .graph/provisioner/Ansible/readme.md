@@ -1,3 +1,7 @@
+# Guide:
+https://www.middlewareinventory.com/blog/vagrant-ansible-example/
+
+# index
 Vagrant Ansible has 2 provisioners:
 ansible, where Ansible is executed on the Vagrant host
 ansible_local, where Ansible is executed on the Vagrant guest
