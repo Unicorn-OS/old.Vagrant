@@ -1,7 +1,7 @@
-https://github.com/vagrant-libvirt/vagrant-libvirt
-
-# Install
-https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html
+# Home:
+- source: https://github.com/vagrant-libvirt/vagrant-libvirt
+- doc: https://vagrant-libvirt.github.io/vagrant-libvirt/
+  - [install](https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html)
 
 # Guide
 [sch:](https://www.google.com/search?q=vagrant+qemu+kvm)
