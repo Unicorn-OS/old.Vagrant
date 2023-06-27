@@ -1,0 +1,11 @@
+- name: Update web servers
+  hosts: default
+  remote_user: vagrant
+
+  tasks:
+    - name: Install a list of packages
+      ansible.builtin.apt:
+        pkg:
+          - htop
+          # - p7zip-full
+      become: true
