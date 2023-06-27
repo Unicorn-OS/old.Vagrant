@@ -4,8 +4,16 @@
 - doc: https://vagrant-libvirt.github.io/vagrant-libvirt/
   - [install](https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html)
 
+## Examples:
+- https://vagrant-libvirt.github.io/vagrant-libvirt/examples.html
+
+
 ## Synced Folders
 - https://vagrant-libvirt.github.io/vagrant-libvirt/examples.html#synced-folders
+
+### NFS
+problem: [sch](https://www.google.com/search?q=vagrant+libvirt+shared+folder)
+- [bug: https://discuss.hashicorp.com/t/vagrants-synced-folders-over-nfs-do-not-work-with-libvirt-provider/33262](https://discuss.hashicorp.com/t/vagrants-synced-folders-over-nfs-do-not-work-with-libvirt-provider/33262)
 
 ### Virtio-fs
 >vagrant-libvirt supports Virtio-fs with bidirectional synced folders.
