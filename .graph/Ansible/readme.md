@@ -1,4 +1,5 @@
-# Guide: https://www.middlewareinventory.com/blog/vagrant-ansible-example/
+# Guide:
+- https://www.middlewareinventory.com/blog/vagrant-ansible-example/
 
 
 # Home:
