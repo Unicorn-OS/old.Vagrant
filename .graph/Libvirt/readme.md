@@ -7,20 +7,8 @@
 ## Examples:
 - https://vagrant-libvirt.github.io/vagrant-libvirt/examples.html
 
-
 ## Synced Folders
 - https://vagrant-libvirt.github.io/vagrant-libvirt/examples.html#synced-folders
-
-### NFS
-problem: [sch](https://www.google.com/search?q=vagrant+libvirt+shared+folder)
-- [bug:](https://discuss.hashicorp.com/t/vagrants-synced-folders-over-nfs-do-not-work-with-libvirt-provider/33262)
-
->Ok, I kinda solved the issue.
->Changing
->  `config.vm.synced_folder ".", "/vagrant", type: "nfs"`
->to
->  `config.vm.synced_folder ".", "/vagrant", type: "nfs", mount_options: ["vers=3,tcp"]`
->Makes it work, I however do not understand why! 
 
 ### Virtio-fs
 >vagrant-libvirt supports Virtio-fs with bidirectional synced folders.
