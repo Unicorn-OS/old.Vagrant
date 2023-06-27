@@ -7,6 +7,13 @@
 ## Synced Folders
 - https://vagrant-libvirt.github.io/vagrant-libvirt/examples.html#synced-folders
 
+### Virtio-fs
+>vagrant-libvirt supports Virtio-fs with bidirectional synced folders.
+>
+>For virtiofs shares, a mount: false option allows to define synced folders without mounting them at boot.
+>
+>So far, passthrough is the only supported access mode and it requires running the virtiofsd daemon as root.
+
 ## Guide
 [sch:](https://www.google.com/search?q=vagrant+qemu+kvm)
 - https://ostechnix.com/how-to-use-vagrant-with-libvirt-kvm-provider/
