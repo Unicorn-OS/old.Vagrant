@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
 
     # Only NFS ver. 4 works!
     # config.vm.synced_folder ".", "/vagrant",
-    config.vm.synced_folder "../../", "/vagrant",
+    config.vm.synced_folder "../../../", "/vagrant",
       type: "nfs",
       nfs_version: 4,
       nfs_udp: false
