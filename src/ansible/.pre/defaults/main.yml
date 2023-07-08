@@ -3,10 +3,12 @@ vagrant: true
 # Change this file to add dependency artifacts, repos, & roles!
 repo: [
   { repo: "https://github.com/Unicorn-OS/Apt-cacher.pkg.git", name: "Apt-cacher.pkg"},
+  { repo: "https://github.com/Unicorn-OS/Gnome.desktop.git", name: "Gnome.desktop"},
   ]
 
 role: [
   { git: "Apt-cacher.pkg", name: "AptCacherNg", path: "src/ansible/roles/AptCacherNg"},
+  { git: "Gnome.desktop", name: "Gnome", path: "src/ansible/roles/Gnome"},
   ]
 
 library: [
