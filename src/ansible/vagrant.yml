@@ -1,0 +1,15 @@
+- name: AptCacherNg & GnomeShell minimal
+  hosts: default
+  remote_user: vagrant
+
+  roles:
+    - AptCacherNg/Client
+    - Gnome/minimal
+
+  tasks:
+    - name: Change user password in Vagrant
+      ansible.builtin.user:
+        name: vagrant
+        password: "{{ 'u' | password_hash('sha512', 'tmpsalt') }}"
+      when: ansible_user_id == 'vagrant'
+      become: true

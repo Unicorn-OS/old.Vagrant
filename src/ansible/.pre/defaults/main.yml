@@ -1,0 +1,18 @@
+vagrant: true
+
+# Change this file to add dependency artifacts, repos, & roles!
+repo: [
+  { repo: "https://github.com/Unicorn-OS/Apt-cacher.pkg.git", name: "Apt-cacher.pkg"},
+  ]
+
+role: [
+  { git: "Apt-cacher.pkg", name: "AptCacherNg", path: "src/ansible/roles/AptCacherNg"},
+  ]
+
+library: [
+  # { git: "getGPU", name: "get_gpu.py", path: "src/ansible/library"},
+  ]
+
+# set Inventory
+dynamic_inventory: "{{static_inventory}}"
+test_inventory: true
