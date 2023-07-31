@@ -1,8 +1,6 @@
----
 - name: Install 
   ansible.builtin.dnf:
     name:
-      - httpd
-      - mariadb-server
+      - vagrant
     state: latest
   become: true
