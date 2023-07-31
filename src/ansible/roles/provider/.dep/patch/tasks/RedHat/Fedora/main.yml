@@ -1,0 +1,6 @@
+- name: Install 
+  ansible.builtin.dnf:
+    name:
+      - patch
+    state: latest
+  become: true
