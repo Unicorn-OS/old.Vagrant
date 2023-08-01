@@ -1,4 +1,3 @@
----
 # Bug: is not idempotent, `get_url` Should only download once! as "force = no"
 # https://github.com/ansible/ansible/issues/64016
 
