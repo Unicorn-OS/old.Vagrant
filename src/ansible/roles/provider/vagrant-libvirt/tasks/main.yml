@@ -1,6 +1,0 @@
-# https://ostechnix.com/how-to-use-vagrant-with-libvirt-kvm-provider/
-
-- include_tasks: "{{plugin_source}}.yml"
-
-- name: Set Libvirt as default
-  include_tasks: environment variable.yml

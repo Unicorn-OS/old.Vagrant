@@ -1,2 +1,7 @@
 dependencies:
 - provider/.dep/patch
+- "provider/vagrant-libvirt/{{install_source}}"
+- provider/vagrant-libvirt/environment
+
+# # https://ostechnix.com/how-to-use-vagrant-with-libvirt-kvm-provider/
+

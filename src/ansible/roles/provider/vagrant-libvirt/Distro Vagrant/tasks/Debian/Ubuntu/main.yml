@@ -1,0 +1,18 @@
+# https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html#ubuntu--debian
+
+- name: Install 
+  ansible.builtin.apt:
+    pkg:
+    - libvirt-daemon-system
+    - libvirt-dev
+    - ebtables
+    - libguestfs-tools
+    - vagrant
+    - ruby-fog-libvirt
+  become: true
+
+- name: vagrant plugin libvirt
+  ansible.builtin.shell: vagrant plugin install vagrant-libvirt
+  args:
+    creates: somelog.txt
+

@@ -1,3 +1,6 @@
-plugin_source: "Upstream Vagrant"
+# https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html#ubuntu--debian
+
+install_source: "Distro Vagrant"
+#install_source: "Upstream Vagrant Install"
 
 default_provider: libvirt

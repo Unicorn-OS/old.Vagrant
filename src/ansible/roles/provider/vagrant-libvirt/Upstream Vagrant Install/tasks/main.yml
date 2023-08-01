@@ -1,3 +1,5 @@
+# https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html
+
 # Bug: is not idempotent, `get_url` Should only download once! as "force = no"
 # https://github.com/ansible/ansible/issues/64016
 
@@ -26,11 +28,11 @@
     mode: '0744'
   when: plugin_installed.rc   # Hack to make idempotent until 'force:' is fixed!
 
-# - name: Apply patch
-#   become: true
-#   ansible.posix.patch:
-#     src: Ubuntu-remove-qemu.patch
-#     dest: /var/vagrant/install.bash
+- name: Apply patch
+  become: true
+  ansible.posix.patch:
+    src: Ubuntu-remove-qemu.patch
+    dest: /var/vagrant/install.bash
 
 # May need to rewrite this, to run for user instead of root!
   # become_method: sudo
@@ -51,5 +53,3 @@
 
 - debug:
     msg: "{{plugin_installed.rc}}"
-
-# https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html
