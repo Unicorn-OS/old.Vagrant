@@ -1,12 +1,11 @@
----
 - name: Set Vagrant default provider
   ansible.builtin.lineinfile:
-    path: '/home/{{ ansible_user }}/.profile'
+    path: '/home/{{ ansible_env.USER }}/.profile'
     regexp: '^export VAGRANT_DEFAULT_PROVIDER='
     line: 'export VAGRANT_DEFAULT_PROVIDER={{default_provider}}'
 
 - name: Set Vagrant's default provider 2
   ansible.builtin.lineinfile:
-    path: '/home/{{ ansible_user }}/.bashrc'
+    path: '/home/{{ ansible_env.USER }}/.bashrc'
     regexp: '^export VAGRANT_DEFAULT_PROVIDER='
     line: 'export VAGRANT_DEFAULT_PROVIDER={{default_provider}}'
