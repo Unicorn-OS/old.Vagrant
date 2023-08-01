@@ -17,13 +17,6 @@
   failed_when: false
   args:
     executable: /bin/bash
-# Old
-  # shell: |
-  #   if compgen -G "/root/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec" ; then
-  #     echo True
-  #   else
-  #     echo False
-  #   fi
 
 - name: Download vagrant-libvirt-qa install script
   ansible.builtin.get_url:
@@ -33,11 +26,11 @@
     mode: '0744'
   when: plugin_installed.rc   # Hack to make idempotent until 'force:' is fixed!
 
-- name: Apply patch
-  become: true
-  ansible.posix.patch:
-    src: Ubuntu-remove-qemu.patch
-    dest: /var/vagrant/install.bash
+# - name: Apply patch
+#   become: true
+#   ansible.posix.patch:
+#     src: Ubuntu-remove-qemu.patch
+#     dest: /var/vagrant/install.bash
 
 # May need to rewrite this, to run for user instead of root!
   # become_method: sudo
