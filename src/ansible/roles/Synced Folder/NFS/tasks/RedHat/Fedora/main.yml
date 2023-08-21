@@ -1,0 +1,26 @@
+# from: https://www.server-world.info/en/note?os=Fedora_34&p=nfs&f=1
+
+- name: Install NFS Server
+  ansible.builtin.dnf:
+    name:
+      - nfs-utils
+    state: latest
+  become: true
+
+- name: Firewalld allow NFS service
+  ansible.posix.firewalld:
+    service: nfs
+    permanent: true
+    state: enabled
+  loop:
+  - nfs
+  - nfs3
+  - mountd
+  - rpc-bind
+  notify: reload service firewalld
+  become: true
+
+# - name: for specific version
+#   include_tasks:
+#     file: "{{ ansible_distribution_major_version }}.yml"
+#   when: "{{ ansible_distribution_major_version in [38,37,36] }}"
