@@ -1,24 +1,23 @@
 # from: https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html#ubuntu--debian
 # Download and execute the vagrant-libvirt-qa install script (installs latest vagrant by default)
 
-# - name: Create a directory if it does not exist
-#   ansible.builtin.file:
-#     path: "{{ tmp_dir }}"
-#     state: directory
-#     owner: "{{ ansible_env.USER }}"
-#     group: "{{ ansible_env.USER }}"
-
 - name: Download script
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/vagrant-libvirt/vagrant-libvirt-qa/main/scripts/install.bash
-    dest: "{{ tmp_dir }}/install.bash"
+    dest: "{{ script }}"
     mode: '0755'
-
 
 - name: Remove 'qemu' package for Ubuntu >=23.04
   ansible.builtin.replace:
-    path: "{{ tmp_dir }}/install.bash"
+    path: "{{ script }}"
     after: 'function setup_ubuntu()'
-    before: '</VirtualHost>'
-    regexp: '^        qemu \'
+    before: 'function setup_distro()'
+    regexp: '^        qemu \\\n'
     replace: ''
+
+- name: This command will change the working directory to somedir/ and will only run when somedir/somelog.txt doesn't exist
+  ansible.builtin.shell: "{{ script }}"
+  args:
+    creates: "{{ creates }}"
+  async: 3600
+  poll: 30
