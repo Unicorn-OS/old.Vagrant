@@ -19,5 +19,6 @@
   ansible.builtin.shell: "{{ script }}"
   args:
     creates: "{{ creates }}"
+  become: true
   async: 3600
   poll: 30
