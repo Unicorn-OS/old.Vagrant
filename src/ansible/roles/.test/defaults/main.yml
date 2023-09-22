@@ -1,1 +1,3 @@
 test_dir: "{{ansible_env.HOME}}/.uni/hyperion/vagrant/.test"
+
+poll_frequency: 15

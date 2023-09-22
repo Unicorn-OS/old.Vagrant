@@ -15,4 +15,4 @@
     chdir: "{{ test_dir }}"
     creates: .vagrant
   async: 3600
-  poll: 45
+  poll: "{{ poll_frequency }}"
