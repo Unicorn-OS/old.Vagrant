@@ -29,4 +29,4 @@
 - name: install plugin
   ansible.builtin.shell: vagrant plugin install vagrant-libvirt
   args:
-    creates: "{{ ansible_env.HOME }}/.vagrant.d/gems/3.1.2/cache/vagrant-libvirt-0.12.2.gem"
+    creates: "{{ ansible_env.HOME }}/.vagrant.d/gems/*/cache/vagrant-libvirt-*.gem"
