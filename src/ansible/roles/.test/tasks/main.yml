@@ -8,3 +8,11 @@
   args:
     chdir: "{{ test_dir }}"
     creates: Vagrantfile
+
+- name: vagrant up
+  ansible.builtin.shell: vagrant up
+  args:
+    chdir: "{{ test_dir }}"
+    creates: .vagrant
+  async: 3600
+  poll: 45
