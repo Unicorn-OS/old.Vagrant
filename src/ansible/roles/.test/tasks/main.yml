@@ -1,0 +1,10 @@
+- name: create test
+  ansible.builtin.file:
+    path: "{{ test_dir }}"
+    state: directory
+
+- name: vagrant init
+  ansible.builtin.shell: vagrant init generic/ubuntu2204
+  args:
+    chdir: "{{ test_dir }}"
+    creates: Vagrantfile
