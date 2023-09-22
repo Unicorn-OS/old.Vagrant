@@ -1,12 +1,11 @@
 - name: Install Vagrant & plugins
   hosts: localhost
   vars:
-    # Host_vars
     ansible_become_password: u
-    install_source: "Distro Vagrant"
+#    install_source: "Distro Vagrant"
 
   roles:
     # - Vagrant  
     # vagrant-libvirt will Install latest Vagrant! overwriting default install
-    - provider/vagrant-libvirt
-    - Synced Folder
+    - provider/vagrant-libvirt/package
+    # - Synced Folder

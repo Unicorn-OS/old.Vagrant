@@ -1,0 +1,6 @@
+- name: Install 
+  ansible.builtin.dnf:
+    name:
+      - vagrant-libvirt
+    state: latest
+  become: true

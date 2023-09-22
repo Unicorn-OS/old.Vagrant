@@ -1,0 +1,32 @@
+# Source: https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html#ubuntu--debian
+
+- name: purge vagrant-libvirt
+  ansible.builtin.apt:
+    name: vagrant-libvirt
+    state: absent
+    purge: true
+  become: true
+
+- name: Hold vagrant-libvirt
+  ansible.builtin.dpkg_selections:
+    name: vagrant-libvirt
+    selection: hold
+  become: true
+
+- name: Install packages
+  ansible.builtin.apt:
+    pkg:
+    - qemu
+    - libvirt-daemon-system
+    - libvirt-dev
+    - ebtables
+    - libguestfs-tools
+    - vagrant
+    - ruby-fog-libvirt
+  become: true
+
+- name: install plugin
+  ansible.builtin.shell: vagrant plugin install vagrant-libvirt
+  args:
+    creates: /somelog.txt
+
