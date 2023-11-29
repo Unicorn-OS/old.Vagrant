@@ -1,4 +1,5 @@
 dependencies:
 - Vagrant/install
-# - provider/vagrant-libvirt
-# - provider/set default
+# - Vagrant/provider/vagrant-libvirt
+# - Vagrant/provider/set default
+# - Synced Folder

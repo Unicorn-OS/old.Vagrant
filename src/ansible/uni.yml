@@ -2,10 +2,7 @@
   hosts: localhost
   vars:
     ansible_become_password: u
-#    install_source: "Distro Vagrant"
 
   roles:
     - Vagrant
-    # - provider/vagrant-libvirt/package
-    # - Synced Folder
     # - .test

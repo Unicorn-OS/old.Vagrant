@@ -1,6 +1,7 @@
-- name: Install 
+- name: Install vagrant-libvirt package
   ansible.builtin.dnf:
     name:
       - vagrant-libvirt
     state: latest
   become: true
+  when: install_source == 'package'

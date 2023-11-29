@@ -1,0 +1,3 @@
+ubuntu_default: snap
+
+install_source: package
