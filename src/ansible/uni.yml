@@ -1,8 +1,7 @@
-- name: Install Vagrant & plugins
+- name: Install Vagrant
   hosts: localhost
   vars:
     ansible_become_password: u
 
   roles:
     - Vagrant
-    # - .test
