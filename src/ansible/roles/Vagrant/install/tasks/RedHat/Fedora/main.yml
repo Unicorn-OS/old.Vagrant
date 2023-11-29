@@ -1,6 +1,2 @@
-- name: Install 
-  ansible.builtin.dnf:
-    name:
-      - vagrant
-    state: latest
-  become: true
+- name: test
+  ansible.builtin.include_tasks: test.yml

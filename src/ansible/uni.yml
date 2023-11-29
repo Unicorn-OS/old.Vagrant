@@ -1,12 +1,11 @@
 - name: Install Vagrant & plugins
-#  hosts: localhost
-  hosts: test
+  hosts: localhost
   vars:
     ansible_become_password: u
 #    install_source: "Distro Vagrant"
 
   roles:
-    # - Vagrant
-    - provider/vagrant-libvirt/package
+    - Vagrant
+    # - provider/vagrant-libvirt/package
     # - Synced Folder
-    - .test
+    # - .test

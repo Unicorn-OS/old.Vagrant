@@ -1,0 +1,6 @@
+- name: Install 
+  ansible.builtin.dnf:
+    name:
+      - vagrant
+    state: latest
+  become: true
