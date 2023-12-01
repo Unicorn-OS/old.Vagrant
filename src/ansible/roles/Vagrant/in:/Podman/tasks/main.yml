@@ -42,6 +42,8 @@
     path: "{{ ansible_env.HOME }}/.bashrc"
     append_newline: true
     prepend_newline: true
+    marker_begin: "podman Vagrant BEGIN"
+    marker_end: "podman Vagrant END"
     create: true
     block: |
       alias vagrant='podman run --rm -it \
