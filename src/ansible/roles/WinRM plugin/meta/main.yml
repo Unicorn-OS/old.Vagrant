@@ -1,0 +1,3 @@
+---
+dependencies:
+- WinRM plugin/vagrant plugin winrm

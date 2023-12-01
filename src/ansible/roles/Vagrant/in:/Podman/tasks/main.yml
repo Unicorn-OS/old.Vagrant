@@ -30,6 +30,7 @@
     block: |
       FROM docker://registry.fedoraproject.org/fedora:{{ podman_fedora_version }}
       RUN dnf install -y openssh-clients vagrant vagrant-libvirt
+      RUN gem install winrm winrm-fs winrm-elevated
       RUN mkdir -p /root/{{ boxes_path }}
       CMD [ "/bin/bash" ]
 

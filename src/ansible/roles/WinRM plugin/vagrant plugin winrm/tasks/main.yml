@@ -1,0 +1,10 @@
+---
+# https://itecnote.com/tecnote/vagrant-up-fails-with-cannot-load-winrm/
+
+- name: install winrm & winrm-fs gems
+  ansible.builtin.shell: "{{ item }}"
+  args:
+    creates: /home/me/.vagrant.d/gems/*/gems/winrm-fs-*
+  loop:
+  - vagrant plugin install winrm
+  - vagrant plugin install winrm-fs

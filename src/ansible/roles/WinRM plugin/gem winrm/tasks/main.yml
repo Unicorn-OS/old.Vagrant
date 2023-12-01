@@ -1,0 +1,10 @@
+---
+# https://bugzilla.redhat.com/show_bug.cgi?id=1784787
+- name: Install ruby gems winrm winrm-fs and winrm-elevated
+  community.general.gem:
+    name: "{{ item }}"
+    state: latest
+  loop:
+  - winrm
+  - winrm-fs
+  - winrm-elevated

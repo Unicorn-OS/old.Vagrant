@@ -1,5 +1,6 @@
 dependencies:
 - Vagrant/install
+- WinRM plugin
 # - Vagrant/provider/vagrant-libvirt
 # - Vagrant/provider/set default
 # - Synced Folder
