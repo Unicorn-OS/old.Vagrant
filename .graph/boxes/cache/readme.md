@@ -1,0 +1,1 @@
+Boxes are stored in: /home/me/.vagrant.d/boxes

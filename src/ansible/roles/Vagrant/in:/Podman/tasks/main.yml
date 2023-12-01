@@ -30,6 +30,7 @@
     block: |
       FROM docker://registry.fedoraproject.org/fedora:{{ podman_fedora_version }}
       RUN dnf install -y openssh-clients vagrant vagrant-libvirt
+      RUN mkdir -p /root/{{ boxes_path }}
       CMD [ "/bin/bash" ]
 
 - name: Build image
@@ -49,6 +50,7 @@
       alias vagrant='podman run --rm -it \
         --volume /run/libvirt:/run/libvirt \
         --volume "${HOME}:${HOME}:rslave" \
+        --mount type=bind,source={{ ansible_env.HOME }}/{{ boxes_path }},target=/root/{{ boxes_path }} \
         --env "HOME=${HOME}" \
         --workdir "$(pwd)" \
         --net host \
