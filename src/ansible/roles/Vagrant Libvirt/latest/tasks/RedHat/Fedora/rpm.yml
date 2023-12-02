@@ -6,9 +6,7 @@
     ansible.builtin.dnf:
       name: vagrant-libvirt
       state: absent
-
-  - name: Run script
-    ansible.builtin.script: install_Fedora.sh
+    notify: Fedora Vagrant libvirt install script
   become: true
   when: latest
 

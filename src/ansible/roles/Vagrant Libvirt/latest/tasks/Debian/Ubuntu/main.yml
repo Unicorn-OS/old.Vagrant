@@ -7,12 +7,14 @@
       name: vagrant-libvirt
       state: latest
       purge: true
+    become: true
 
   - name: hold
     ansible.builtin.shell: apt-mark hold vagrant-libvirt
     args:
       creates: somelog.txt
     changed_when: false
+    become: true
 
   - name: Install a list of packages
     ansible.builtin.apt:
@@ -22,6 +24,14 @@
       - ebtables
       - libguestfs-tools
       - ruby-fog-libvirt
+      # Prereqs not listed in docs
+      - libvirt-dev
+      - build-essential
       update_cache: yes
-  become: true
+    become: true
+
+  - name: Compile vagrant plugin vagrant-libvirt
+    ansible.builtin.shell: vagrant plugin install vagrant-libvirt
+    args:
+      creates: "{{ ansible_env.HOME }}/.vagrant.d/gems/*/gems/vagrant-libvirt-*"
   when: latest
