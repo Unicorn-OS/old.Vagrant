@@ -1,0 +1,27 @@
+---
+# from: https://vagrant-libvirt.github.io/vagrant-libvirt/
+- name: Install Latest
+  block:
+  - name: remove old
+    ansible.builtin.apt:
+      name: vagrant-libvirt
+      state: latest
+      purge: true
+
+  - name: hold
+    ansible.builtin.shell: apt-mark hold vagrant-libvirt
+    args:
+      creates: somelog.txt
+    changed_when: false
+
+  - name: Install a list of packages
+    ansible.builtin.apt:
+      pkg:
+      - qemu-kvm
+      - libvirt-daemon-system
+      - ebtables
+      - libguestfs-tools
+      - ruby-fog-libvirt
+      update_cache: yes
+  become: true
+  when: latest

@@ -1,0 +1,14 @@
+---
+# from: https://vagrant-libvirt.github.io/vagrant-libvirt/
+- name: Install Latest
+  block:
+  - name: Remove old
+    ansible.builtin.dnf:
+      name: vagrant-libvirt
+      state: absent
+
+  - name: Run script
+    ansible.builtin.script: install_Fedora.sh
+  become: true
+  when: latest
+

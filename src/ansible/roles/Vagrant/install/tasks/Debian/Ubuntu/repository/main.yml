@@ -1,22 +1,19 @@
 ---
-
+# https://developer.hashicorp.com/vagrant/downloads
 - name: Download GPG key
-  ansible.builtin.shell: wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  ansible.builtin.shell: wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
   args:
     creates: /usr/share/keyrings/hashicorp-archive-keyring.gpg
   become: true
 
-- name: If 22.10, Set to jammy instead
+- name: Doesn't support Newest Ubuntu! If > 22.10, Set to kinetic.
   set_fact:
-    codename: jammy
-  when: (ansible_distribution_version | replace('.','') | int) >= 2204
-
-- debug:
-    msg: "code {{codename}}"
+    codename: "{{ ubuntu_latest_supported_codename }}"
+  when: (ansible_distribution_version | replace('.','') | int) >= ubuntu_latest_supported
 
 - name: Add repository
   ansible.builtin.apt_repository:
-    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{codename}} main"
+    repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ codename }} main"
     state: present
     filename: hashicorp
   become: true
@@ -26,5 +23,3 @@
     pkg:
     - vagrant
   become: true
-
-# https://developer.hashicorp.com/vagrant/downloads
