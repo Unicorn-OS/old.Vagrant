@@ -1,4 +1,4 @@
-# Solution: Create network
+# Solution: Create network & Bridge
 Name: vagrant-libvirt
 Device: virbr1
 Network: 192.168.121.0/24
