@@ -23,3 +23,7 @@ Should be 'active'
 
 # Solution:
 Create `virbr1` and set it to start on boot!
+
+## sudo ifconfig virbr0 up
+https://www.xmodulo.com/network-default-is-not-active.html#google_vignette
+`sudo ifconfig virbr0 up`
