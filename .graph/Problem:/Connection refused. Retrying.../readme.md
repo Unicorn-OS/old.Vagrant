@@ -15,5 +15,9 @@ Fails because it's trying to create a `virbr1` Bridge & `vagrant-libvirt` NAT ne
 - [Existing bridges not found: public_network referencing host device X which does not exist #1624](https://github.com/vagrant-libvirt/vagrant-libvirt/issues/1624)
 - [public_network plugin doesn't find bridges on Ubuntu 22.04 #1788](https://github.com/vagrant-libvirt/vagrant-libvirt/issues/1788)
 
+## Debug:
+```virsh -c qemu:///system iface-list --all```
+Should be 'active'
+
 # Solution:
 Create `virbr1` and set it to start on boot!
