@@ -1,4 +1,4 @@
 ---
-
+ubuntu_source: latest
 ubuntu_latest_supported_codename: "kinetic"
 ubuntu_latest_supported: 2210

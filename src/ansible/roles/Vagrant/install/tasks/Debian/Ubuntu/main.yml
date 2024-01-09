@@ -1,2 +1,2 @@
-- include_tasks: repository/main.yml
+- include_tasks: "{{ ubuntu_source }}/main.yml"
 
