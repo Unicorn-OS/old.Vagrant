@@ -1,6 +1,8 @@
 # problem: Fails to Connect
 error: "Connection refused. Retrying..."
 
+affects: Ubuntu 23.10
+
 sch: https://www.google.com/search?q=vagrant+libvirt+%22Connection+refused.+Retrying%22
 
 ## Cause:
