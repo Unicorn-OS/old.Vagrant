@@ -10,3 +10,8 @@
   become: true
   when: latest
 
+- name: Install libvirt-devel
+  ansible.builtin.dnf:
+    name:
+      - libvirt-devel
+    state: latest

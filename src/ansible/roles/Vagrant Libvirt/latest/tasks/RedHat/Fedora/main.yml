@@ -23,3 +23,6 @@
   include_tasks:
     file: rpm.yml
   when: not Silverblue
+
+- include_tasks:
+    file: plugin install.yml

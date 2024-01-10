@@ -1,0 +1,4 @@
+- name: install vagrant-libvirt
+  ansible.builtin.shell: vagrant plugin install vagrant-libvirt
+  args:
+    creates: somelog.txt
