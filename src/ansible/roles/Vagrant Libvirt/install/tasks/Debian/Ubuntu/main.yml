@@ -1,0 +1,11 @@
+- name: Install a list of packages
+  ansible.builtin.apt:
+    pkg:
+    - build-essential
+    - libvirt-dev
+  become: true
+
+- name: install vagrant-libvirt
+  ansible.builtin.shell: vagrant plugin install vagrant-libvirt
+  args:
+    creates: somelog.txt

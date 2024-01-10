@@ -1,7 +1,5 @@
 - name: Install Vagrant
-  hosts: localhost, net
-  vars:
-    ansible_become_password: u
+  hosts: localhost #, net
 
   roles:
     - Vagrant

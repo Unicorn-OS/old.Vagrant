@@ -1,5 +1,0 @@
----
-
-codename: "{{ansible_distribution_release}}"
-
-source: repository

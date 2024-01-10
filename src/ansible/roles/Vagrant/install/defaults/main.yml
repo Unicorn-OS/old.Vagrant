@@ -1,0 +1,2 @@
+---
+codename: "{{ ansible_distribution_release }}"
