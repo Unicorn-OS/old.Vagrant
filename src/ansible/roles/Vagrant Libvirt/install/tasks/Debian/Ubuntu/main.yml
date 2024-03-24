@@ -9,3 +9,9 @@
   ansible.builtin.shell: vagrant plugin install vagrant-libvirt
   args:
     creates: somelog.txt
+
+- name: Install libguestfs for Packaging boxes
+  ansible.builtin.apt:
+    pkg:
+    - libguestfs-tools
+  become: true
