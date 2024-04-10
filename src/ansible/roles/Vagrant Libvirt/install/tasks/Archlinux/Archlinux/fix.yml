@@ -1,0 +1,7 @@
+---
+# Solution: https://bbs.archlinux.org/viewtopic.php?id=292146
+
+- name: Install vagrant-libvirt with Fix
+  ansible.builtin.shell: VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install vagrant-libvirt
+  args:
+    creates: "{{ ansible_env.HOMe }}/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec"

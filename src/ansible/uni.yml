@@ -1,5 +1,5 @@
 - name: Install Vagrant
-  hosts: localhost #, net
+  hosts: localhost
 
   roles:
     - Vagrant
