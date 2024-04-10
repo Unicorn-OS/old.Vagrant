@@ -1,6 +1,23 @@
 ---
-- name: Install Vagrant
+# from: https://wiki.archlinux.org/title/Vagrant#vagrant-libvirt
+# https://vagrant-libvirt.github.io/vagrant-libvirt/installation.html#arch
+
+- name: Install Pre-reqs
   community.general.pacman:
-    name: vagrant
+    name:
+    - base-devel
+    - qemu-img
     state: present
   become: true
+
+
+- name: use Fix to install
+  include_tasks: Fix.yml
+  when: archlinux_fix
+
+
+- name: Install vagrant-libvirt
+  ansible.builtin.shell: vagrant plugin install vagrant-libvirt
+  args:
+    creates: "{{ ansible_env.HOMe }}/.vagrant.d/gems/*/gems/vagrant-libvirt-*/vagrant-libvirt.gemspec"
+  when: not archlinux_fix
