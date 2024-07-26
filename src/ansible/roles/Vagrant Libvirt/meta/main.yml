@@ -1,3 +1,4 @@
 dependencies:
-- UniInc.Libvirt
+- UniInc.KVM
+#- UniInc.Libvirt
 - Vagrant Libvirt/install
