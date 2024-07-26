@@ -1,6 +1,0 @@
----
-- name: Install Vagrant
-  ansible.builtin.apt:
-    pkg:
-    - vagrant
-  become: true
